@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_210sdp">
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/placeholder_image" />
+
+        <ImageView
+            android:elevation="@dimen/_7sdp"
+            android:id="@+id/ivPoster"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:src="@drawable/placeholder_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTitle"
+            android:textSize="@dimen/_15sdp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_toEndOf="@id/ivPoster"
+            android:layout_below="@id/ivCover"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="@android:color/black"
+            tools:text="Avengers Endgame"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvReleaseDate"
+            android:textSize="@dimen/_13sdp"
+            android:layout_toEndOf="@id/ivPoster"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="@android:color/black"
+            android:gravity="bottom"
+            tools:text="Avengers"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvRating"
+            android:textSize="@dimen/_13sdp"
+            android:layout_toEndOf="@id/tvReleaseDate"
+            android:layout_below="@id/tvTitle"
+            android:gravity="end|bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="@android:color/black"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/_2sdp"
+            tools:text="Aven"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvOverview"
+        android:textSize="@dimen/_13sdp"
+        android:layout_below="@id/rlMain"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="@dimen/_10sdp"
+        tools:text="Avengers Endgame"/>
+
+</RelativeLayout>
