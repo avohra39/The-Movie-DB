@@ -18,14 +18,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList<Movie> movieList;
+    private List<Movie> movieList;
     private ClickListener clickListener;
 
-    public ListAdapter(Context context, ArrayList<Movie> movieList, ClickListener clickListener) {
+    public ListAdapter(Context context, List<Movie> movieList, ClickListener clickListener) {
         this.context = context;
         this.movieList = movieList;
         this.clickListener = clickListener;

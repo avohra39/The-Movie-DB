@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "658879523715",
+    "firebase_url": "https://walku-de39e.firebaseio.com",
+    "project_id": "walku-de39e",
+    "storage_bucket": "walku-de39e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658879523715:android:447a1f14a8f147d028e4b6",
+        "android_client_info": {
+          "package_name": "com.android.alfaazpractical"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658879523715-tpb75tm663qvp51lnsps25d7en7niij2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKU5zGpaikSxUwPi3If7GiuwVNqS0dDWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658879523715-tpb75tm663qvp51lnsps25d7en7niij2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
