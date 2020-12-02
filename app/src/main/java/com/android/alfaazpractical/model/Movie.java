@@ -64,6 +64,16 @@ public class Movie implements Serializable {
     @ColumnInfo(name = "vote_average")
     private Double voteAverage;
 
+    private boolean isSelected = false;
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
     public Double getPopularity() {
         return popularity;
     }

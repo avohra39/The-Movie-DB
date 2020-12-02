@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
         binding.rvTopRated.setLayoutManager(linearLayoutManager);
         adapter = new ListAdapter(this, movieList, (view, position) -> {
             if (view.getId() == R.id.cvClick) {
-                Intent intent = new Intent(this, DetailActivity.class);
+                /*Intent intent = new Intent(this, DetailActivity.class);
                 intent.putExtra("id", movieList.get(position).getId());
-                startActivity(intent);
+                startActivity(intent);*/
             }
         });
         binding.rvTopRated.addOnScrollListener(new RecyclerView.OnScrollListener() {

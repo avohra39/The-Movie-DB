@@ -25,6 +25,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     private Context context;
     private List<Movie> movieList;
     private ClickListener clickListener;
+    //private int checkedPosition = 0;
 
     public ListAdapter(Context context, List<Movie> movieList, ClickListener clickListener) {
         this.context = context;
@@ -47,6 +48,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
             }
             holder.binding.tvTitle.setText(movieList.get(position).getTitle());
             holder.binding.tvOverview.setText(movieList.get(position).getOverview());
+            holder.binding.cvClick.setCardBackgroundColor(movieList.get(position).isSelected() ? context.getResources().getColor(android.R.color.darker_gray) : context.getResources().getColor(android.R.color.white));
+
+            holder.binding.cvClick.setOnClickListener(v -> {
+                movieList.get(position).setSelected(!movieList.get(position).isSelected());
+                holder.binding.cvClick.setCardBackgroundColor(movieList.get(position).isSelected() ? context.getResources().getColor(android.R.color.darker_gray) : context.getResources().getColor(android.R.color.white));
+            });
         }
     }
 
@@ -78,7 +85,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.cvClick){
+            if (v.getId() == R.id.cvClick) {
                 clickListener.onItemClick(v, getAdapterPosition());
             }
         }
