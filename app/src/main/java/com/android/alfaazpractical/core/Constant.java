@@ -23,4 +23,10 @@ public class Constant {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    public static int getImageId(Context context, String code) {
+        if (code != null)
+            code = code.toLowerCase();
+        String prefix = "international_country_" + code;
+        return context.getResources().getIdentifier("drawable/" + prefix, null, context.getPackageName());
+    }
 }
