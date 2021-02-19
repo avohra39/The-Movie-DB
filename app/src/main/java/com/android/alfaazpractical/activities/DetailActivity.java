@@ -16,8 +16,21 @@ import com.android.alfaazpractical.api.ApiClient;
 import com.android.alfaazpractical.api.ApiInterface;
 import com.android.alfaazpractical.core.Constant;
 import com.android.alfaazpractical.databinding.ActivityDetailBinding;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -212,5 +225,60 @@ public class DetailActivity extends AppCompatActivity {
                 fm.popBackStack();
             }
         }
+    }
+
+    try {
+        String jsonString = getJsonStringData();
+        //Log.e(">", "" + jsonString);
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<CountryModel>>() {
+        }.getType();
+        List<CountryModel> myModelList = gson.fromJson(jsonString, listType);
+        countrylist.addAll(myModelList);
+        baseCountryList.addAll(myModelList);
+    } catch (
+    IOException e) {
+        e.printStackTrace();
+    }
+
+    private String getJsonStringData() throws IOException {
+
+        InputStream is = getResources().openRawResource(R.raw.countries);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            is.close();
+        }
+
+        String jsonString = writer.toString();
+
+        return jsonString;
+    }
+
+    private void searchCountryCode(String text) {
+
+        countrylist.clear();
+        if (text.equals("")) {
+            countrylist.addAll(baseCountryList);
+        } else {
+            for (int i = 0; i < baseCountryList.size(); i++) {
+                if (baseCountryList.get(i).getCountryname().toLowerCase().contains(text.toLowerCase())
+                        || baseCountryList.get(i).getCountrycode().toLowerCase().contains(text.toLowerCase())) {
+                    countrylist.add(baseCountryList.get(i));
+                }
+            }
+        }
+
+        mAdapter.notifyDataSetChanged();
     }
 }
